@@ -4,10 +4,13 @@ body {
 
 .calculator {
   background-color: #C47335;
-  margin: auto;
   width: 320px;
+  height: 380px;
   padding: 15px;
   border-radius: 10px;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
 }
 
 .cell {
