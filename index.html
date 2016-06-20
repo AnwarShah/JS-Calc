@@ -3,43 +3,44 @@
 <head>
   <title>Calculator</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  <script src="js/jquery.js"></script>
   <link rel="stylesheet" type="text/css" href="css/custom.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/script.js"></script>
 </head>
 <body>
   <div class="container">
     <div class="calculator">
       <h4 id="logoText">Calculator</h4>
-      <input type="text" name="display" class="display">
+      <input readonly type="text" name="display" class="display">
       <div class="cellRow">
-        <div class="cell">AC</div>
-        <div class="cell">CE</div>
-        <div class="cell">%</div>
-        <div class="cell">/</div>
+        <div class="cell" id="ac">AC</div>
+        <div class="cell" id="ce">CE</div>
+        <div class="cell operator" id="percent">%</div>
+        <div class="cell operator" id="divide">/</div>
       </div>
       <div class="cellRow">
-        <div class="cell">7</div>
-        <div class="cell">8</div>
-        <div class="cell">9</div>
-        <div class="cell">*</div>
+        <div class="cell digit" id="seven">7</div>
+        <div class="cell digit" id="eight">8</div>
+        <div class="cell digit" id="nine">9</div>
+        <div class="cell operator" id="multiplication">*</div>
       </div>
       <div class="cellRow">
-        <div class="cell">4</div>
-        <div class="cell">5</div>
-        <div class="cell">6</div>
-        <div class="cell">-</div>
+        <div class="cell digit" id="four">4</div>
+        <div class="cell digit" id="five">5</div>
+        <div class="cell digit" id="six">6</div>
+        <div class="cell operator" id="subtraction">-</div>
       </div>
       <div class="cellRow">
-        <div class="cell">1</div>
-        <div class="cell">2</div>
-        <div class="cell">3</div>
-        <div class="cell">+</div>
+        <div class="cell digit" id="one">1</div>
+        <div class="cell digit" id="two">2</div>
+        <div class="cell digit" id="three">3</div>
+        <div class="cell operator" id="add">+</div>
       </div>
       <div class="cellRow">
-        <div class="cell">.</div>
-        <div class="cell">0</div>
-        <div class="cell">Ans</div>
-        <div class="cell">=</div>
+        <div class="cell digit" id="decimal">.</div>
+        <div class="cell digit" id="zero">0</div>
+        <div class="cell" ="ans">Ans</div>
+        <div class="cell" id="equal">=</div>
       </div>
     </div>
   </div>
