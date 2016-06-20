@@ -1,0 +1,40 @@
+body {
+  background-color:  #56351E;
+}
+
+.calculator {
+  background-color: #C47335;
+  margin: auto;
+  width: 320px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.cell {
+  background-color: white;
+  color: #FF8B00;
+  text-align: center;
+  vertical-align: middle;
+  width: 22.5%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 5px;
+  margin: 2px;
+  display: inline-block;
+}
+
+.display {
+  background-color: #F19953;
+  height: 25px;
+  width: 99%;
+  text-align: right;
+  margin: auto;
+  border: none;
+  margin-bottom: 10px;
+  color: #A1724D;
+}
+
+#logoText{
+  color: #F3AE78;
+  text-align: right;
+}
