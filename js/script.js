@@ -23,6 +23,14 @@ function nextToken(mathString) {
   return (result !== null) ? result[0] : null;
 }
 
+function isOperator(str) {
+  return str.match(/\+|\-|\*|\//) !== null
+}
+
+function isOperand(str) {
+  return !isOperator(str); // if str is not operator, it is operand
+}
+
 function solveMath(display) {
   mathInput = display.val();
   calculateResult(mathInput);
