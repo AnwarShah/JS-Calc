@@ -20,9 +20,11 @@ function eraseDigit(display) {
   display.val(newText);
 };
 
-// Returns the next token from a math Expression
+// Returns the next evaluatable compound expression
+// Example: -32*32+3
+// First Token: -32*32, Second Token: +3
 function nextToken(mathString) {
-  var re = /\+|\-|\*|\/|[0-9]+([.0-9]+)?/;
+  var re = /[\+|\-]?[0-9]?([.0-9]+)(([\*|\/])[\+|\-]?[0-9]+([.0-9]+)?)?/;
   var result = mathString.match(re);
   return (result !== null) ? result[0] : null;
 }
@@ -55,42 +57,15 @@ function solveMath(display) {
 };
 
 function calculateResult(mathString) {
-  var operandStack = [];
-  var operatorStack = [];
-
-  token = nextToken(mathString)
-  do{
-    if(isOperand(token)){
-      if(isEmpty(operatorStack)){
-        operandStack.push(token);
-      } else {
-        if ( isMultiplicationOrDivision(operatorStack.peek()) ){
-          leftOperand = operandStack.pop();
-          operator = operatorStack.pop();
-          result = doMath(leftOperand, token, operator);
-          operandStack.push(result);
-        } else { // last stacked operator is not * or /
-          operandStack.push(token);
-        }
-      }
-    } else { // not operand, i.e. an operator
-      operatorStack.push(token);
-    }
-    console.log("OperatorStack: " + operatorStack);
+  token = nextToken(mathString);
+  result = '';
+  while(token !== null){
+    console.log(token);
+    result = eval(result + token); // old result + new compound token
+    showInDisplay(result);
     mathString = mathString.slice(token.length);
     token = nextToken(mathString);
-    console.log("Math Str: " + mathString)
-  } while(token != null);
-
-  // after simplification, add or minus the result
-  leftOperand = operandStack.pop();
-  while(!isEmpty(operandStack)){
-    operator = operatorStack.pop();
-    rightOperand = operandStack.pop();
-    leftOperand = doMath(leftOperand, rightOperand, operator);
   }
-  showInDisplay(leftOperand);
-  console.log(leftOperand);
 };
 
 $( document ).ready(function() {
