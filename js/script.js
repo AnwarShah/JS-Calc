@@ -51,9 +51,8 @@ function doMath(leftOperand, rightOperand, operator) {
 
 function solveMath(display) {
   mathInput = display.val();
-  calculateResult(mathInput);
-  // result = calculateResult(mathInput);
-  // display.val(result);
+  result = calculateResult(mathInput);
+  display.val(result);
 };
 
 function calculateResult(mathString) {
@@ -62,10 +61,10 @@ function calculateResult(mathString) {
   while(token !== null){
     console.log(token);
     result = eval(result + token); // old result + new compound token
-    showInDisplay(result);
     mathString = mathString.slice(token.length);
     token = nextToken(mathString);
   }
+  return result;
 };
 
 $( document ).ready(function() {
