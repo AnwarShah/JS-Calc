@@ -71,23 +71,19 @@ $( document ).ready(function() {
   var display = $('.display');
   var expression = ''; // running string of math expression
 
-  $('.digit').click(function(e) {
-    input = $(this).text();
-    expression += $(this).text();
-    showInDisplay(display, expression);
-  });
-
-  $('.operator').click(function(e) {
+  $('.input').click(function(e) {
     input = $(this).text();
     expression += $(this).text();
     showInDisplay(display, expression);
   });
 
   $('#ac').click(function(e) {
+    expression = '';
     clearDisplay();
   });
 
   $('#ce').click(function(e) {
+    expression = expression.slice(0, expression.length - 2);
     eraseDigit(display);
   });
 
