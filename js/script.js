@@ -6,8 +6,8 @@ function appendToDisplay(display, text) {
   display.val( display.val() + text );
 };
 
-function showInDisplay(text) {
-  $('.display').val(text);
+function showInDisplay(display, text) {
+  display.val(text);
 }
 
 function clearDisplay() {
@@ -69,13 +69,18 @@ function calculateResult(mathString) {
 
 $( document ).ready(function() {
   var display = $('.display');
+  var expression = ''; // running string of math expression
 
   $('.digit').click(function(e) {
-    appendToDisplay(display, $(this).text());
+    input = $(this).text();
+    expression += $(this).text();
+    showInDisplay(display, expression);
   });
 
   $('.operator').click(function(e) {
-    appendToDisplay(display, $(this).text());
+    input = $(this).text();
+    expression += $(this).text();
+    showInDisplay(display, expression);
   });
 
   $('#ac').click(function(e) {
@@ -89,6 +94,13 @@ $( document ).ready(function() {
   // solve the math now
   $('#equal').click(function(e) {
     solveMath(display);
+    expression = '';
+  });
+
+  // chain the last result with ans button
+  $('#ans').click(function(e) {
+    expression = display.val();
+    showInDisplay(display, expression);
   });
 
 });
