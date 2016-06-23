@@ -24,7 +24,7 @@ function eraseDigit(display) {
 // Example: -32*32+3
 // First Token: -32*32, Second Token: +3
 function nextToken(mathString) {
-  var re = /[\+|\-]?[0-9]?([.0-9]+)(([\*|\/])[\+|\-]?[0-9]+([.0-9]+)?)?/;
+  var re = /[\+|\-]*[0-9]?([.0-9]+)(([\*|\/])[\+|\-]?[0-9]+([.0-9]+)?)?/;
   var result = mathString.match(re);
   return (result !== null) ? result[0] : null;
 }
